@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.yy.android.gradle.native-aar.import'
+apply plugin: 'com.ydq.android.gradle.native-aar.import'
 
 android {
     compileSdkVersion "${compile_sdk_version}" as Integer
@@ -12,7 +12,6 @@ android {
         versionName "1.0"
         externalNativeBuild {
             cmake {
-                //arguments '-DANDROID_STL=c++_static'
                 arguments '-DANDROID_STL=c++_static', "-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
             }
             ndkBuild {
@@ -63,9 +62,7 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    //compile 'com.android.support:support-v4:23.2.1'
-    //compile("${demo_library_group}:${demo_library_name}:${version}")
-    implementation "com.yy.android.native-aar:mylib:1.0.1-SNAPSHOT"
+    implementation "com.ydq.android.native-aar:mylib:${version}"
     implementation project(':mylibrary2')
 }
 

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.yy.android.gradle.native-aar.export'
-apply plugin: 'com.yy.android.gradle.native-aar.import'
+apply plugin: 'com.ydq.android.gradle.native-aar.export'
+apply plugin: 'com.ydq.android.gradle.native-aar.import'
 
 android {
     compileSdkVersion "${compile_sdk_version}" as Integer
@@ -79,14 +79,14 @@ project.afterEvaluate {
     publishing {
         publications {
             maven(MavenPublication) {
-            groupId 'com.yy.android.native-aar'
+            groupId 'com.ydq.android.native-aar'
                 artifactId "mylib"
                 //artifact bundleExportRelease
                 artifact android.libraryVariants.find { it.name == "release" }.packageLibrary
             }
 
             mavenStatic(MavenPublication) {
-            groupId 'com.yy.android.native-aar'
+            groupId 'com.ydq.android.native-aar'
                 artifactId "mylib-static"
                 //artifact bundleStaticLibExportRelease
                 artifact bundleStaticLibRelease

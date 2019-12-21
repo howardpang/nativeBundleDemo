@@ -2,12 +2,13 @@
 
 buildscript {
     repositories {
-        maven { url 'http://repo.yypm.com:8181/nexus/content/groups/public' }
-        maven { url 'plugins'}
+        mavenLocal()
+        jcenter()
+        google()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.0.2'
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "com.android.tools.build:gradle:${gradle_build_tool_version}"
+        classpath "com.ydq.android.gradle.build.tool:nativeBundle:${nativeBundlePlugin_version}"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -15,7 +16,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'http://repo.yypm.com:8181/nexus/content/groups/public' }
         mavenLocal()
     }
 }
@@ -24,9 +24,3 @@ subprojects {
     tasks.withType(Javadoc).all { enabled = false }
 }
 
-apply plugin: 'net.researchgate.release'
-
-release {
-    failOnUnversionedFiles = false
-    failOnUpdateNeeded = false
-}

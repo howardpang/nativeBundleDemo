@@ -23,8 +23,6 @@ def getRepositoryPassword() {
     return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
 }
 
-group = "com.yy.mobile"
-
 task androidSourcesJar(type: Jar) {
     classifier = 'sources'
     if(project.hasProperty("android")) {
