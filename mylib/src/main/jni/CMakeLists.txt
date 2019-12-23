@@ -10,8 +10,10 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+include_directories("./include")
+
 add_library( # Sets the name of the library.
-             mylib
+             mylib_shared
 
 
              # Sets the library as a shared library.
@@ -21,7 +23,7 @@ add_library( # Sets the name of the library.
              mylib.cpp)
 
 add_library( # Sets the name of the library.
-             mylib-static
+             mylib
 
              # Sets the library as a shared library.
              STATIC
@@ -47,8 +49,8 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
+                       mylib_shared
                        mylib
-                        mylib-static
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
