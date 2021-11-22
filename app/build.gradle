@@ -4,6 +4,7 @@ apply plugin: 'com.ydq.android.gradle.native-aar.import'
 android {
     compileSdkVersion "${compile_sdk_version}" as Integer
     buildToolsVersion "${build_tools_version}"
+    //ndkVersion "${ndk_version}"
     defaultConfig {
         applicationId "com.myapplication"
         minSdkVersion "${min_sdk_version}" as Integer
@@ -36,17 +37,19 @@ android {
         jni.srcDirs = [] //disable automatic ndk-build call
     }
 
-    /*
+    nativeBundleImport {
+        cacheLibs = true
+    }
+
+    flavorDimensions "company", "channel"
     productFlavors {
-        flavorDimensions "default"
-        export {
-            dimension "default"
+        companyA {
+            dimension "company"
         }
-        local {
-            dimension "default"
+        channelA {
+            dimension "channel"
         }
     }
-    */
 
     externalNativeBuild {
         ndkBuild {

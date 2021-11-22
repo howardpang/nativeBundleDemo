@@ -3,12 +3,12 @@
 buildscript {
     repositories {
         mavenLocal()
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:${gradle_build_tool_version}"
-        classpath "com.ydq.android.gradle.build.tool:nativeBundle:${nativeBundlePlugin_version}"
+        classpath "io.github.howardpang:androidNativeBundle:${nativeBundlePlugin_version}"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,8 +17,8 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
-        jcenter()
         google()
+        jcenter()
     }
 }
 
