@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.ydq.android.gradle.native-aar.export'
-//apply plugin: 'com.ydq.android.gradle.native-aar.import'
+apply plugin: 'com.ydq.android.gradle.native-aar.import'
 
 android {
     compileSdkVersion "${compile_sdk_version}" as Integer
@@ -12,6 +12,14 @@ android {
         targetSdkVersion "${target_sdk_version}" as Integer
         versionCode Integer.valueOf(System.env.BUILD_NUMBER ?: "1")
         versionName "${version}"
+        externalNativeBuild {
+            ndkBuild {
+                arguments "-DCOMPANY=DEFAULT"
+            }
+            cmake {
+                arguments "-DCOMPANY=DEFAULT", "-DCMAKE_VERBOSE_MAKEFILE=ON"
+            }
+        }
     }
     buildTypes {
         release {

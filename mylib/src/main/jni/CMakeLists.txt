@@ -10,6 +10,7 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+include (${ANDROID_GRADLE_NATIVE_BUNDLE_PLUGIN_MK})
 include_directories("./include")
 
 add_library( # Sets the name of the library.

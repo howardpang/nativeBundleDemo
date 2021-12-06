@@ -19,5 +19,6 @@ LOCAL_WHOLE_STATIC_LIBRARIES += mylib
 
 LOCAL_LDLIBS += -llog
 
+include ${ANDROID_GRADLE_NATIVE_BUNDLE_PLUGIN_MK} #must followed by "include $(BUILD_SHARED_LIBRARY)" or "include $(BUILD_STATIC_LIBRARY)"
 include $(BUILD_SHARED_LIBRARY)
 
